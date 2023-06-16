@@ -8,8 +8,7 @@ const HeaderBar: React.FC = () => {
         <Toolbar style={{ margin: '0 auto', width: '90%' }} sx={{ justifyContent: "space-between" }}>
             <Box>
                 <a href="https://www.linkedin.com/in/samuel-hobbs-bu/" style={{color: "white", textDecoration: "none"}} target="_blank" rel="noopener noreferrer">
-                    {/* <img src={linkedin} alt="linkedin" width="30" height="30"/>  */}
-                    LinkedIn
+                    <img src={linkedin} alt="linkedin" width="30" height="30"/> 
                 </a>
             </Box>
             {/* <Stack direction="row" spacing={3}>

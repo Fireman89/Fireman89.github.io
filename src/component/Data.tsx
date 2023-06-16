@@ -4,24 +4,36 @@ import cfbhIcon from '../image/cfbhicon.png'
 import FrameworkGrid from "./FrameworkGrid";
 import Footer from "./Footer";
 
+import aws from "../image/aws.svg"
+import mysql from "../image/mysql.svg"
+import python from "../image/python.svg"
+import react from "../image/react.svg"
+import spring from "../image/spring.svg"
+
 const cfbhDescription = 
 `
-Programmed and maintained AWS-hosted application for 100+ hours over 2 months. 
-Allows browsing of college football team records, schedules, and logos via intuitive, React-based UI. 
-Hosted via EC2 instances and S3 buckets, CI/CD via CodePipeline, CodeBuild, CodeDeploy, and GitHub. 
-Utilizes Python web scraper; React, Spring, and MySQL frameworks; and PM2, Nginx server technologies.
-(All logos belong to the NCAA and their respective schools. Used under Fair Use for educational purposes.)
+Want to browse college football seasons and quickly pull up each school's games and logos?
+I first built a Python scraper to save every NCAA season, game, and team  
+to a MySQL database and 
+scraped high-resoultion team logos to upload  
+to an S3 bucket. Then, I built an AWS-hosted full-stack application with a React-based UI and Spring-based backend.
+This new site allows you to select any season, showing every team and conference from that 
+year with their logo at the time. You can then hover over the team's record and pull up all their games, 
+opponents, and scores that season.
 `
 const cfbhLink = 'http://cfbhistory.net';
 const cfbhProjectLink = 'https://github.com/Fireman89/cfbh-public';
 
 const tmoDescription = 
 `
-Thoroughly tested and debugged RESTful APIs for migrating Digital Order system. 
-Ensured consistency between API requests across redundant system environments. 
-Developed Slack Bot integrated with GitLab, allowing quick deletion of old, merged branches.
+Last year, T-Mobile commissioned us to help migrate their Digital Orders system from TIBCO 
+to Spring. To help with this, I coordinated with other developers 
+to ensure that API calls were consistent across both environments via Cucumber- & Java-based testing applications, 
+Postman, and local development apps. The provided feedback sped up the migration process as the main development team 
+could focus on the fixing inconsistencies between each. Additional contract work included a Python script allowing 
+quick, customizable deletion of old GitLab branches and a Slack bot with similar functionality.
 `
-const tmoYears = 'Nov 2022 - Pres'
+const tmoYears = 'Nov 2022 - Pres.'
 
 const hclDescription =
 `
@@ -29,7 +41,7 @@ Contract worker for client companies' technological and needs.
 Developed full stack capstone application on 10-person capstone team. 
 Currently assisting T-Mobile as a client.
 `
-const hclYears = 'Jul 2022 - Pres'
+const hclYears = 'Jul 2022 - Pres.'
 
 const Data: React.FC = () => {
     return(
@@ -43,6 +55,7 @@ const Data: React.FC = () => {
                 description={cfbhDescription}
                 link={cfbhLink}
                 projectLink={cfbhProjectLink}
+                fwLogos={[aws, react, spring, mysql]}
             />
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
                 CURRENT JOB
@@ -69,29 +82,6 @@ const Data: React.FC = () => {
                 SKILLS
             </Typography>
             <FrameworkGrid/>
-            <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
-                OTHER WORK
-            </Typography>
-            <DataBlock
-                title="Baylor Intramurals Official"
-                description="Managed five major intramural sports, 
-                    including flag football and basketball, as referee. 
-                    Communicated with other referees to ensure games were officiated correctly and on-time. 
-                    Refined analysis skills and patience in a fast-paced work environment."
-                years="Jan 2020 - May 2022"
-            />
-            <DataBlock
-                title="Shipt Retail Shopper"
-                description="Delivered and coordinated over 200 retail orders with customers. 
-                    Ensured high customer satisfaction through speedy delivery and multitasking."
-                years=""
-            />
-            <DataBlock
-                title="Subway Sandwich Artist"
-                description="Coordinated with coworkers and management to sell sandwiches and maintain the restaurant. 
-                    Developed communication and teamwork skills in a fast-paced work environment."
-                years="May 2019 - Aug 2019"
-            />
             <Footer/>
         </Stack>
     );

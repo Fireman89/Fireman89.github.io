@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import githubIcon from '../image/github-mark-white.svg'
 
 interface Props {
@@ -7,13 +7,13 @@ interface Props {
     description?: string;
     link?: string;
     projectLink?: string;
-    frameworkIcons?: string[];
+    fwLogos?: string[];
     years?: string;
 }
 
-const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLink, frameworkIcons, years }) => {
+const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLink, fwLogos, years }) => {
     return (
-    <Stack direction="column">
+    <Stack direction="column" spacing={1}>
         <Stack direction="row" spacing={2} sx={{ height: "45px", justifyContent: "space-between", alignItems: "center" }}>
             {icon ?
                 <Box sx={{ display: "flex"}}>
@@ -50,6 +50,17 @@ const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLin
         <Typography sx={{ textAlign: "justify" }}>
             {description}
         </Typography>
+        <br></br>
+        <Stack direction="row" spacing={1} justifyContent="center">
+        {fwLogos ? (
+            fwLogos.map(fwl => (
+                <Paper component={Box} display="flex" justifyContent="center" alignItems="center" sx={{ height: "80px", width: "120px", backgroundColor: "#1A2027"}}>
+                    <img src={fwl} alt="fwlogo" style={{ maxHeight: "40px", maxWidth: "100px" }}/>
+                </Paper>
+            ))
+            ) : ''
+        }
+        </Stack>
     </Stack>
     );
 }
