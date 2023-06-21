@@ -9,9 +9,10 @@ interface Props {
     projectLink?: string;
     fwLogos?: string[];
     years?: string;
+    blockImage?: string;
 }
 
-const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLink, fwLogos, years }) => {
+const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLink, fwLogos, years, blockImage }) => {
     return (
     <Stack direction="column" spacing={1}>
         <Stack direction="row" spacing={2} sx={{ height: "45px", justifyContent: "space-between", alignItems: "center" }}>
@@ -50,7 +51,7 @@ const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLin
         <Typography sx={{ textAlign: "justify" }}>
             {description}
         </Typography>
-        <br></br>
+        <br/>
         <Stack direction="row" spacing={1} justifyContent="center">
         {fwLogos ? (
             fwLogos.map(fwl => (
@@ -61,6 +62,10 @@ const DataBlock: React.FC<Props> = ({ title, icon, description, link, projectLin
             ) : ''
         }
         </Stack>
+        <br/>
+        {blockImage ? (
+            <img src={blockImage} alt="blockImage"/>
+        ) : ''}
     </Stack>
     );
 }

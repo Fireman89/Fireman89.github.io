@@ -19,7 +19,7 @@ scraped high-resoultion team logos to upload
 to an S3 bucket. Then, I built an AWS-hosted full-stack application with a React-based UI and Spring-based backend.
 This new site allows you to select any season, showing every team and conference from that 
 year with their logo at the time. You can then hover over the team's record and pull up all their games, 
-opponents, and scores that season.
+opponents, and scores that season. All logos are owned by the schools and are used under Fair Use.
 `
 const cfbhLink = 'http://cfbhistory.net';
 const cfbhProjectLink = 'https://github.com/Fireman89/cfbh-public';
@@ -41,7 +41,8 @@ Contract worker for client companies' technological and needs.
 Developed full stack capstone application on 10-person capstone team. 
 Currently assisting T-Mobile as a client.
 `
-const hclYears = 'Jul 2022 - Pres.'
+const hclYears = 'Jul 2022 - Pres.';
+const cfbhImage = 'https://portfolio-app.s3.us-east-2.amazonaws.com/CFBH+Demo.gif';
 
 const Data: React.FC = () => {
     return(
@@ -56,6 +57,7 @@ const Data: React.FC = () => {
                 link={cfbhLink}
                 projectLink={cfbhProjectLink}
                 fwLogos={[aws, react, spring, mysql]}
+                blockImage={cfbhImage}
             />
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
                 CURRENT JOB
