@@ -1,15 +1,25 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from '@mui/material/Unstable_Grid2';
 import selfpic from '../image/selfpic-cropped.jpg';
+import useWindowSize from "../hook/useWindowSize";
 
 const IntroBlock: React.FC = () => {
+    const windowSize = useWindowSize();
+    const isWide = windowSize[1] > 700;
+    
     return (
     <div>
-    <Grid container spacing={2} direction="column" sx={{ width: "750px", margin: "auto"}}>
-        <Grid container xs={9} spacing={4} sx={{ justifyContent: "space-between", marginTop: 1 }}>
-            <Grid container xs={9} direction="row" sx={{position: "relative" }}>
+    <Grid container spacing={2} direction="column" alignItems="center" sx={{ maxWidth: "800px", margin: "auto"}}>
+        <Grid container 
+            direction={isWide ? "row" : "column-reverse"}
+            justifyContent="space-between"
+            alignContent="center"
+            alignItems="center"
+            marginTop={1}
+            >
+            <Grid container direction="row" sx={{ position: "relative" }}>
                 <Grid sx={{ margin: "auto" }}>
-                    <Typography sx={{ fontFamily: "Courier New", fontSize: "72px", whiteSpace: "nowrap"}}>
+                    <Typography fontSize={isWide ? "72px" : "60px"} sx={{ fontFamily: "Courier New", whiteSpace: "nowrap"}}>
                         Sam Hobbs
                     </Typography>
                     <Typography sx={{ fontFamily: "Courier New", fontSize: "24px", color: "#39ff14"}}>
@@ -17,11 +27,11 @@ const IntroBlock: React.FC = () => {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid xs={3}>                
-                <img src={selfpic} alt="self" style={{ maxHeight: "400px"}}/>
+            <Grid maxWidth="200px">
+                <img src={selfpic} alt="self" style={{ maxWidth: "200px" }}/>
             </Grid>
         </Grid>
-        <Grid sx={{ width: "600px", margin: "auto"}}>            
+        <Grid sx={{ maxWidth: "600px", margin: "auto" }}>            
             <Typography sx={{ fontFamily: "Courier New"}}>
                 Software Developer with 3+ years managing projects.
                 Experienced in several frameworks and cloud technologies.

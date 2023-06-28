@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import HeaderBar from './component/HeaderBar';
 import IntroBlock from './component/IntroBlock';
-import Data from './component/Data';
+import EntryList from './component/EntryList';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       </header>
       <main className="App-body">
         <IntroBlock/>
-        <Data/>
+        <EntryList/>
       </main>
     </div>
   );

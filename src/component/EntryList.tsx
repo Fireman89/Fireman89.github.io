@@ -1,5 +1,6 @@
-import { Stack, Typography } from "@mui/material";
-import DataBlock from "./DataBlock";
+import { Box, Paper, Stack, Typography } from "@mui/material";
+import Grid from '@mui/material/Unstable_Grid2';
+import EntryHeader from "./EntryHeader";
 import cfbhIcon from '../image/cfbhicon.png'
 import FrameworkGrid from "./FrameworkGrid";
 import Footer from "./Footer";
@@ -33,7 +34,7 @@ Postman, and local development apps. The provided feedback sped up the migration
 could focus on the fixing inconsistencies between each. Additional contract work included a Python script allowing 
 quick, customizable deletion of old GitLab branches and a Slack bot with similar functionality.
 `
-const tmoYears = 'Nov 2022 - Pres.'
+const tmoYears = 'Nov \'22 - Pres.'
 
 const hclDescription =
 `
@@ -41,45 +42,71 @@ Contract worker for client companies' technological and needs.
 Developed full stack capstone application on 10-person capstone team. 
 Currently assisting T-Mobile as a client.
 `
-const hclYears = 'Jul 2022 - Pres.';
+const hclYears = 'Jul \'22 - Pres.';
 const cfbhImage = 'https://portfolio-app.s3.us-east-2.amazonaws.com/CFBH+Demo.gif';
 
-const Data: React.FC = () => {
+const EntryList: React.FC = () => {
     return(
-        <Stack direction="column" spacing={2} sx={{ width: "900px", margin: "auto", textAlign: "left"}}>
+        <Stack direction="column" padding={1} paddingLeft={2} paddingRight={2} spacing={1} sx={{ maxWidth: "900px", margin: "auto", textAlign: "left" }}>
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
                 FEATURED
             </Typography>
-            <DataBlock 
-                title="CFBHistory"
-                icon={cfbhIcon}
-                description={cfbhDescription}
-                link={cfbhLink}
-                projectLink={cfbhProjectLink}
-                fwLogos={[aws, react, spring, mysql]}
-                blockImage={cfbhImage}
-            />
+            <Stack direction="column" spacing={1}>
+                <EntryHeader 
+                    title="CFBHistory"
+                    icon={cfbhIcon}
+                    link={cfbhLink}
+                    projectLink={cfbhProjectLink}
+                />
+                <Typography sx={{ fontSize: "16px" }}>
+                    {cfbhDescription}
+                </Typography>
+                <br/>
+                <Grid container paddingBottom={1} spacing={1} justifyContent="center">
+                    {[aws, react, spring, mysql].map(fwl => (
+                        <Grid>
+                        <Paper component={Box} display="flex" justifyContent="center" alignItems="center"
+                            sx={{ height: "80px", width: "120px", backgroundColor: "#1A2027"}}>
+                            <img src={fwl} alt="fwlogo" style={{ maxHeight: "40px", maxWidth: "100px" }}/>
+                        </Paper>
+                        </Grid>
+                    ))}
+                </Grid>
+                <img src={cfbhImage} alt="blockImage"/>
+            </Stack>
+                        
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
                 CURRENT JOB
             </Typography>
-            <DataBlock
+            
+            <EntryHeader
                 title="T-Mobile"
-                description={tmoDescription}
                 years={tmoYears}
-            />
-            <DataBlock
-                title="HCLTech"
-                description={hclDescription}
-                years={hclYears}
             />            
+            <Typography sx={{ fontSize: "16px" }}>
+                {tmoDescription}
+            </Typography>
+            
+            <EntryHeader
+                title="HCLTech"
+                years={hclYears}
+            />        
+            <Typography sx={{ fontSize: "16px" }}>
+                {hclDescription}
+            </Typography>
+                      
+            <br/>
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
                 EDUCATION
             </Typography>
-            <DataBlock
+            <EntryHeader
                 title="Baylor University"
-                description="Bachelor of Science - Computer Science (GPA: 3.31)"
-                years="Aug 2018 - May 2022"
-            />            
+                years="Aug '18 - May '22"
+            />
+            <Typography sx={{ fontSize: "16px" }}>
+                {"Bachelor of Science - Computer Science (GPA: 3.31)"}
+            </Typography>
+
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
                 SKILLS
             </Typography>
@@ -89,4 +116,4 @@ const Data: React.FC = () => {
     );
 }
 
-export default Data;
+export default EntryList;
