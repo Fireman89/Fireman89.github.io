@@ -5,7 +5,7 @@ import useWindowSize from "../hook/useWindowSize";
 
 const IntroBlock: React.FC = () => {
     const windowSize = useWindowSize();
-    const isWide = windowSize[1] > 700;
+    const isWide = windowSize.width > 700;
     
     return (
     <div>
