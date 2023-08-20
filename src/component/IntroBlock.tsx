@@ -31,10 +31,10 @@ const IntroBlock: React.FC = () => {
                 <img src={selfpic} alt="self" style={{ maxWidth: "200px" }}/>
             </Grid>
         </Grid>
-        <Grid sx={{ maxWidth: "600px", margin: "auto" }}>            
+        <Grid sx={{ maxWidth: 700, margin: "auto" }}>            
             <Typography sx={{ fontFamily: "Courier New"}}>
-                Software Developer with 3+ years managing projects.
-                Experienced in several frameworks and cloud technologies.
+                Software Developer with 3+ years managing full stack projects.
+                Currently pursuing opportunities to apply and expand skills in software engineering.
             </Typography>
         </Grid>
     </Grid>

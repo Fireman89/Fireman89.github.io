@@ -34,13 +34,13 @@ Postman, and local development apps. The provided feedback sped up the migration
 could focus on the fixing inconsistencies between each. Additional contract work included a Python script allowing 
 quick, customizable deletion of old GitLab branches and a Slack bot with similar functionality.
 `
-const tmoYears = 'Nov \'22 - Pres.'
+const tmoYears = 'Oct - Dec \'22'
 
 const hclDescription =
 `
 Contract worker for client companies' technological and needs. 
 Developed full stack capstone application on 10-person capstone team. 
-Currently assisting T-Mobile as a client.
+Currently assisting Merck as a client. Previously worked with T-Mobile.
 `
 const hclYears = 'Jul \'22 - Pres.';
 const cfbhImage = 'https://portfolio-app.s3.us-east-2.amazonaws.com/CFBH+Demo.gif';
@@ -76,7 +76,7 @@ const EntryList: React.FC = () => {
             </Stack>
                         
             <Typography sx={{ color: "lightblue", fontSize: "24px", fontFamily: "Courier New" }}>
-                CURRENT JOB
+                EXPERIENCE
             </Typography>
             
             <EntryHeader
